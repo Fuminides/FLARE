@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+build/
+dist/
+# Everything a run produces, and the clones of the external baselines
+runs/
+results/
+.cache/
+baselines/external/

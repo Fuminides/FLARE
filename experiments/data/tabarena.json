@@ -1,0 +1,382 @@
+[
+ {
+  "dataset": "APSFailure",
+  "tid": 363616,
+  "problem_type": "binary",
+  "n_folds": 3,
+  "n_repeats": 3,
+  "n_samples_train_per_fold": 50666.66666666666,
+  "n_features": 170,
+  "n_classes": 2
+ },
+ {
+  "dataset": "Amazon_employee_access",
+  "tid": 363613,
+  "problem_type": "binary",
+  "n_folds": 3,
+  "n_repeats": 3,
+  "n_samples_train_per_fold": 21846.0,
+  "n_features": 9,
+  "n_classes": 2
+ },
+ {
+  "dataset": "Bank_Customer_Churn",
+  "tid": 363619,
+  "problem_type": "binary",
+  "n_folds": 3,
+  "n_repeats": 3,
+  "n_samples_train_per_fold": 6666.666666666667,
+  "n_features": 10,
+  "n_classes": 2
+ },
+ {
+  "dataset": "Bioresponse",
+  "tid": 363620,
+  "problem_type": "binary",
+  "n_folds": 3,
+  "n_repeats": 3,
+  "n_samples_train_per_fold": 2500.6666666666665,
+  "n_features": 1776,
+  "n_classes": 2
+ },
+ {
+  "dataset": "Diabetes130US",
+  "tid": 363630,
+  "problem_type": "binary",
+  "n_folds": 3,
+  "n_repeats": 3,
+  "n_samples_train_per_fold": 47678.66666666666,
+  "n_features": 47,
+  "n_classes": 2
+ },
+ {
+  "dataset": "E-CommereShippingData",
+  "tid": 363632,
+  "problem_type": "binary",
+  "n_folds": 3,
+  "n_repeats": 3,
+  "n_samples_train_per_fold": 7332.666666666667,
+  "n_features": 10,
+  "n_classes": 2
+ },
+ {
+  "dataset": "Fitness_Club",
+  "tid": 363671,
+  "problem_type": "binary",
+  "n_folds": 3,
+  "n_repeats": 10,
+  "n_samples_train_per_fold": 1000.0,
+  "n_features": 6,
+  "n_classes": 2
+ },
+ {
+  "dataset": "GiveMeSomeCredit",
+  "tid": 363673,
+  "problem_type": "binary",
+  "n_folds": 3,
+  "n_repeats": 3,
+  "n_samples_train_per_fold": 100000.0,
+  "n_features": 10,
+  "n_classes": 2
+ },
+ {
+  "dataset": "HR_Analytics_Job_Change_of_Data_Scientists",
+  "tid": 363679,
+  "problem_type": "binary",
+  "n_folds": 3,
+  "n_repeats": 3,
+  "n_samples_train_per_fold": 12772.0,
+  "n_features": 12,
+  "n_classes": 2
+ },
+ {
+  "dataset": "Is-this-a-good-customer",
+  "tid": 363682,
+  "problem_type": "binary",
+  "n_folds": 3,
+  "n_repeats": 10,
+  "n_samples_train_per_fold": 1148.6666666666667,
+  "n_features": 13,
+  "n_classes": 2
+ },
+ {
+  "dataset": "MIC",
+  "tid": 363711,
+  "problem_type": "multiclass",
+  "n_folds": 3,
+  "n_repeats": 10,
+  "n_samples_train_per_fold": 1132.6666666666667,
+  "n_features": 111,
+  "n_classes": 8
+ },
+ {
+  "dataset": "Marketing_Campaign",
+  "tid": 363684,
+  "problem_type": "binary",
+  "n_folds": 3,
+  "n_repeats": 10,
+  "n_samples_train_per_fold": 1493.3333333333333,
+  "n_features": 25,
+  "n_classes": 2
+ },
+ {
+  "dataset": "NATICUSdroid",
+  "tid": 363689,
+  "problem_type": "binary",
+  "n_folds": 3,
+  "n_repeats": 3,
+  "n_samples_train_per_fold": 4994.0,
+  "n_features": 86,
+  "n_classes": 2
+ },
+ {
+  "dataset": "SDSS17",
+  "tid": 363699,
+  "problem_type": "multiclass",
+  "n_folds": 3,
+  "n_repeats": 3,
+  "n_samples_train_per_fold": 52035.333333333336,
+  "n_features": 11,
+  "n_classes": 3
+ },
+ {
+  "dataset": "anneal",
+  "tid": 363614,
+  "problem_type": "multiclass",
+  "n_folds": 3,
+  "n_repeats": 10,
+  "n_samples_train_per_fold": 598.6666666666666,
+  "n_features": 38,
+  "n_classes": 5
+ },
+ {
+  "dataset": "bank-marketing",
+  "tid": 363618,
+  "problem_type": "binary",
+  "n_folds": 3,
+  "n_repeats": 3,
+  "n_samples_train_per_fold": 30140.666666666668,
+  "n_features": 13,
+  "n_classes": 2
+ },
+ {
+  "dataset": "blood-transfusion-service-center",
+  "tid": 363621,
+  "problem_type": "binary",
+  "n_folds": 3,
+  "n_repeats": 10,
+  "n_samples_train_per_fold": 498.6666666666667,
+  "n_features": 4,
+  "n_classes": 2
+ },
+ {
+  "dataset": "churn",
+  "tid": 363623,
+  "problem_type": "binary",
+  "n_folds": 3,
+  "n_repeats": 3,
+  "n_samples_train_per_fold": 3333.333333333333,
+  "n_features": 19,
+  "n_classes": 2
+ },
+ {
+  "dataset": "coil2000_insurance_policies",
+  "tid": 363624,
+  "problem_type": "binary",
+  "n_folds": 3,
+  "n_repeats": 3,
+  "n_samples_train_per_fold": 6548.0,
+  "n_features": 85,
+  "n_classes": 2
+ },
+ {
+  "dataset": "credit-g",
+  "tid": 363626,
+  "problem_type": "binary",
+  "n_folds": 3,
+  "n_repeats": 10,
+  "n_samples_train_per_fold": 666.6666666666666,
+  "n_features": 20,
+  "n_classes": 2
+ },
+ {
+  "dataset": "credit_card_clients_default",
+  "tid": 363627,
+  "problem_type": "binary",
+  "n_folds": 3,
+  "n_repeats": 3,
+  "n_samples_train_per_fold": 20000.0,
+  "n_features": 23,
+  "n_classes": 2
+ },
+ {
+  "dataset": "customer_satisfaction_in_airline",
+  "tid": 363628,
+  "problem_type": "binary",
+  "n_folds": 3,
+  "n_repeats": 3,
+  "n_samples_train_per_fold": 86586.66666666667,
+  "n_features": 21,
+  "n_classes": 2
+ },
+ {
+  "dataset": "diabetes",
+  "tid": 363629,
+  "problem_type": "binary",
+  "n_folds": 3,
+  "n_repeats": 10,
+  "n_samples_train_per_fold": 512.0,
+  "n_features": 8,
+  "n_classes": 2
+ },
+ {
+  "dataset": "hazelnut-spread-contaminant-detection",
+  "tid": 363674,
+  "problem_type": "binary",
+  "n_folds": 3,
+  "n_repeats": 10,
+  "n_samples_train_per_fold": 1600.0,
+  "n_features": 30,
+  "n_classes": 2
+ },
+ {
+  "dataset": "heloc",
+  "tid": 363676,
+  "problem_type": "binary",
+  "n_folds": 3,
+  "n_repeats": 3,
+  "n_samples_train_per_fold": 6972.666666666667,
+  "n_features": 23,
+  "n_classes": 2
+ },
+ {
+  "dataset": "hiva_agnostic",
+  "tid": 363677,
+  "problem_type": "multiclass",
+  "n_folds": 3,
+  "n_repeats": 3,
+  "n_samples_train_per_fold": 2563.333333333333,
+  "n_features": 1617,
+  "n_classes": 3
+ },
+ {
+  "dataset": "in_vehicle_coupon_recommendation",
+  "tid": 363681,
+  "problem_type": "binary",
+  "n_folds": 3,
+  "n_repeats": 3,
+  "n_samples_train_per_fold": 8456.0,
+  "n_features": 24,
+  "n_classes": 2
+ },
+ {
+  "dataset": "jm1",
+  "tid": 363712,
+  "problem_type": "binary",
+  "n_folds": 3,
+  "n_repeats": 3,
+  "n_samples_train_per_fold": 7256.666666666667,
+  "n_features": 21,
+  "n_classes": 2
+ },
+ {
+  "dataset": "kddcup09_appetency",
+  "tid": 363683,
+  "problem_type": "binary",
+  "n_folds": 3,
+  "n_repeats": 3,
+  "n_samples_train_per_fold": 33333.333333333336,
+  "n_features": 212,
+  "n_classes": 2
+ },
+ {
+  "dataset": "maternal_health_risk",
+  "tid": 363685,
+  "problem_type": "multiclass",
+  "n_folds": 3,
+  "n_repeats": 10,
+  "n_samples_train_per_fold": 676.0,
+  "n_features": 6,
+  "n_classes": 3
+ },
+ {
+  "dataset": "online_shoppers_intention",
+  "tid": 363691,
+  "problem_type": "binary",
+  "n_folds": 3,
+  "n_repeats": 3,
+  "n_samples_train_per_fold": 8220.0,
+  "n_features": 17,
+  "n_classes": 2
+ },
+ {
+  "dataset": "polish_companies_bankruptcy",
+  "tid": 363694,
+  "problem_type": "binary",
+  "n_folds": 3,
+  "n_repeats": 3,
+  "n_samples_train_per_fold": 3940.0,
+  "n_features": 64,
+  "n_classes": 2
+ },
+ {
+  "dataset": "qsar-biodeg",
+  "tid": 363696,
+  "problem_type": "binary",
+  "n_folds": 3,
+  "n_repeats": 10,
+  "n_samples_train_per_fold": 702.6666666666666,
+  "n_features": 41,
+  "n_classes": 2
+ },
+ {
+  "dataset": "seismic-bumps",
+  "tid": 363700,
+  "problem_type": "binary",
+  "n_folds": 3,
+  "n_repeats": 3,
+  "n_samples_train_per_fold": 1722.6666666666667,
+  "n_features": 15,
+  "n_classes": 2
+ },
+ {
+  "dataset": "splice",
+  "tid": 363702,
+  "problem_type": "multiclass",
+  "n_folds": 3,
+  "n_repeats": 3,
+  "n_samples_train_per_fold": 2126.6666666666665,
+  "n_features": 60,
+  "n_classes": 3
+ },
+ {
+  "dataset": "students_dropout_and_academic_success",
+  "tid": 363704,
+  "problem_type": "multiclass",
+  "n_folds": 3,
+  "n_repeats": 3,
+  "n_samples_train_per_fold": 2949.333333333333,
+  "n_features": 36,
+  "n_classes": 3
+ },
+ {
+  "dataset": "taiwanese_bankruptcy_prediction",
+  "tid": 363706,
+  "problem_type": "binary",
+  "n_folds": 3,
+  "n_repeats": 3,
+  "n_samples_train_per_fold": 4546.0,
+  "n_features": 94,
+  "n_classes": 2
+ },
+ {
+  "dataset": "website_phishing",
+  "tid": 363707,
+  "problem_type": "multiclass",
+  "n_folds": 3,
+  "n_repeats": 10,
+  "n_samples_train_per_fold": 902.0,
+  "n_features": 9,
+  "n_classes": 3
+ }
+]

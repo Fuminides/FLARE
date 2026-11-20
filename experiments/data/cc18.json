@@ -1,0 +1,338 @@
+[
+ {
+  "name": "dresses-sales",
+  "did": 23381,
+  "rows": 500,
+  "features": 12,
+  "classes": 2,
+  "missing": 401
+ },
+ {
+  "name": "kc2",
+  "did": 1063,
+  "rows": 522,
+  "features": 21,
+  "classes": 2,
+  "missing": 0
+ },
+ {
+  "name": "cylinder-bands",
+  "did": 6332,
+  "rows": 540,
+  "features": 39,
+  "classes": 2,
+  "missing": 263
+ },
+ {
+  "name": "climate-model-simulation-crashes",
+  "did": 40994,
+  "rows": 540,
+  "features": 20,
+  "classes": 2,
+  "missing": 0
+ },
+ {
+  "name": "wdbc",
+  "did": 1510,
+  "rows": 569,
+  "features": 30,
+  "classes": 2,
+  "missing": 0
+ },
+ {
+  "name": "ilpd",
+  "did": 1480,
+  "rows": 583,
+  "features": 10,
+  "classes": 2,
+  "missing": 0
+ },
+ {
+  "name": "balance-scale",
+  "did": 11,
+  "rows": 625,
+  "features": 4,
+  "classes": 3,
+  "missing": 0
+ },
+ {
+  "name": "credit-approval",
+  "did": 29,
+  "rows": 690,
+  "features": 15,
+  "classes": 2,
+  "missing": 37
+ },
+ {
+  "name": "breast-w",
+  "did": 15,
+  "rows": 699,
+  "features": 9,
+  "classes": 2,
+  "missing": 16
+ },
+ {
+  "name": "eucalyptus",
+  "did": 188,
+  "rows": 736,
+  "features": 19,
+  "classes": 5,
+  "missing": 95
+ },
+ {
+  "name": "blood-transfusion-service-center",
+  "did": 1464,
+  "rows": 748,
+  "features": 4,
+  "classes": 2,
+  "missing": 0
+ },
+ {
+  "name": "diabetes",
+  "did": 37,
+  "rows": 768,
+  "features": 8,
+  "classes": 2,
+  "missing": 0
+ },
+ {
+  "name": "analcatdata_dmft",
+  "did": 469,
+  "rows": 797,
+  "features": 4,
+  "classes": 6,
+  "missing": 0
+ },
+ {
+  "name": "analcatdata_authorship",
+  "did": 458,
+  "rows": 841,
+  "features": 70,
+  "classes": 4,
+  "missing": 0
+ },
+ {
+  "name": "vehicle",
+  "did": 54,
+  "rows": 846,
+  "features": 18,
+  "classes": 4,
+  "missing": 0
+ },
+ {
+  "name": "tic-tac-toe",
+  "did": 50,
+  "rows": 958,
+  "features": 9,
+  "classes": 2,
+  "missing": 0
+ },
+ {
+  "name": "vowel",
+  "did": 307,
+  "rows": 990,
+  "features": 12,
+  "classes": 11,
+  "missing": 0
+ },
+ {
+  "name": "credit-g",
+  "did": 31,
+  "rows": 1000,
+  "features": 20,
+  "classes": 2,
+  "missing": 0
+ },
+ {
+  "name": "qsar-biodeg",
+  "did": 1494,
+  "rows": 1055,
+  "features": 41,
+  "classes": 2,
+  "missing": 0
+ },
+ {
+  "name": "MiceProtein",
+  "did": 40966,
+  "rows": 1080,
+  "features": 81,
+  "classes": 8,
+  "missing": 528
+ },
+ {
+  "name": "pc1",
+  "did": 1068,
+  "rows": 1109,
+  "features": 21,
+  "classes": 2,
+  "missing": 0
+ },
+ {
+  "name": "banknote-authentication",
+  "did": 1462,
+  "rows": 1372,
+  "features": 4,
+  "classes": 2,
+  "missing": 0
+ },
+ {
+  "name": "pc4",
+  "did": 1049,
+  "rows": 1458,
+  "features": 37,
+  "classes": 2,
+  "missing": 0
+ },
+ {
+  "name": "cmc",
+  "did": 23,
+  "rows": 1473,
+  "features": 9,
+  "classes": 3,
+  "missing": 0
+ },
+ {
+  "name": "pc3",
+  "did": 1050,
+  "rows": 1563,
+  "features": 37,
+  "classes": 2,
+  "missing": 0
+ },
+ {
+  "name": "car",
+  "did": 40975,
+  "rows": 1728,
+  "features": 6,
+  "classes": 4,
+  "missing": 0
+ },
+ {
+  "name": "steel-plates-fault",
+  "did": 40982,
+  "rows": 1941,
+  "features": 27,
+  "classes": 7,
+  "missing": 0
+ },
+ {
+  "name": "kc1",
+  "did": 1067,
+  "rows": 2109,
+  "features": 21,
+  "classes": 2,
+  "missing": 0
+ },
+ {
+  "name": "ozone-level-8hr",
+  "did": 1487,
+  "rows": 2534,
+  "features": 72,
+  "classes": 2,
+  "missing": 0
+ },
+ {
+  "name": "kr-vs-kp",
+  "did": 3,
+  "rows": 3196,
+  "features": 36,
+  "classes": 2,
+  "missing": 0
+ },
+ {
+  "name": "sick",
+  "did": 38,
+  "rows": 3772,
+  "features": 29,
+  "classes": 2,
+  "missing": 3772
+ },
+ {
+  "name": "churn",
+  "did": 40701,
+  "rows": 5000,
+  "features": 20,
+  "classes": 2,
+  "missing": 0
+ },
+ {
+  "name": "wall-robot-navigation",
+  "did": 1497,
+  "rows": 5456,
+  "features": 24,
+  "classes": 4,
+  "missing": 0
+ },
+ {
+  "name": "first-order-theorem-proving",
+  "did": 1475,
+  "rows": 6118,
+  "features": 51,
+  "classes": 6,
+  "missing": 0
+ },
+ {
+  "name": "jm1",
+  "did": 1053,
+  "rows": 10885,
+  "features": 21,
+  "classes": 2,
+  "missing": 5
+ },
+ {
+  "name": "PhishingWebsites",
+  "did": 4534,
+  "rows": 11055,
+  "features": 30,
+  "classes": 2,
+  "missing": 0
+ },
+ {
+  "name": "nomao",
+  "did": 1486,
+  "rows": 34465,
+  "features": 118,
+  "classes": 2,
+  "missing": 0
+ },
+ {
+  "name": "jungle_chess_2pcs_raw_endgame_complete",
+  "did": 41027,
+  "rows": 44819,
+  "features": 6,
+  "classes": 3,
+  "missing": 0
+ },
+ {
+  "name": "bank-marketing",
+  "did": 1461,
+  "rows": 45211,
+  "features": 16,
+  "classes": 2,
+  "missing": 0
+ },
+ {
+  "name": "electricity",
+  "did": 151,
+  "rows": 45312,
+  "features": 8,
+  "classes": 2,
+  "missing": 0
+ },
+ {
+  "name": "adult",
+  "did": 1590,
+  "rows": 48842,
+  "features": 14,
+  "classes": 2,
+  "missing": 3620
+ },
+ {
+  "name": "connect-4",
+  "did": 40668,
+  "rows": 67557,
+  "features": 42,
+  "classes": 3,
+  "missing": 0
+ }
+]
