@@ -13,7 +13,7 @@ This repository contains the method, the compared methods and the scripts that r
 flare/          the method (a PyTorch package; every module says which part of the paper it implements)
 baselines/      the compared methods: builders, search spaces and adapters to the authors' code
 experiments/    data loaders, runners, job lists and the scripts of the tables and figures
-tests/          unit tests, and the check that this code reproduces the runs of the paper (see tests/test_equivalence.py)
+tests/          unit tests
 ```
 
 ## Install
@@ -71,9 +71,6 @@ CPU hours and a few hundred GPU hours, or run the lines of a job list on a clust
 
     pip install -e ".[experiments,dev]"
     pytest                                   # unit tests (CPU; the tests of an optional part skip when its extra is missing)
-
-`tests/test_equivalence.py` compares this code with reference runs of the code that produced the paper (identical
-losses, scores and rules on CPU); it is skipped unless `FLARE_REFERENCE_DIR` points to those runs.
 
 ## Licence
 

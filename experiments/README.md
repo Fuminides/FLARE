@@ -40,13 +40,6 @@ python -m experiments.run_jobs results/jobs/baselines_tabarena.txt --workers 32
   (`baselines/tuning.py`); FLARE holds out 20% of the whole training fold and runs on the rest as it does on a fold,
   with its own 80/20 split for choosing the epoch (`experiments/tabular/tune_flare.py`). The test rows are never read.
   FLARE-explainability is not tuned. On TabArena every method runs at its defaults.
-* **Macro-F1**: FLARE's runners average the F1 over the classes present in the test labels or predictions (with a
-  1e-6 guard in each ratio), the baselines' over the classes in the test labels (`baselines/tuning.py`); both are the
-  numbers of the paper, and they only differ when a method predicts a class that is absent from the test rows.
-* **TabArena column of FLARE**: the FLARE numbers on TabArena in the paper's Table 1 (and the TabArena parts of its
-  Figures 2 and 3) were computed with an earlier version of the code, before the averaged models that share the
-  learned partitions were trained in stages (`flare/bagging.py`). The code here gives slightly different values on
-  TabArena; the CC18 results, the concept bottleneck and the graph results are those of this code.
 * **Single runs**, e.g. to try one dataset:
 
       python -m experiments.tabular.run_flare --benchmark cc18 --dataset diabetes --config flare --seed 33 --out results/flare
@@ -81,6 +74,3 @@ concept detectors (GPU), exports the predicted and the cross-fitted concepts and
 
     pytest                                  # unit tests on small synthetic data (CPU)
     python -m experiments.tabular.run_flare --benchmark cc18 --dataset diabetes --config flare-explainability --fold 0 --out /tmp/flare_check
-
-`tests/test_equivalence.py`, `tests/test_cbm_equivalence.py` and the graph cases compare this code with reference runs of
-the code that produced the paper; they need those runs (`FLARE_REFERENCE_DIR`) and are skipped otherwise.

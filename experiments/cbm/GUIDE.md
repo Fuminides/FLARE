@@ -73,11 +73,3 @@ its rule counts) and FLARE's printed rules in `<out>/rules/`.
 | CUB, per image | 112 | 200 | 4,794 / 1,200 / 5,794 (the official split; 20% of each class's training images, seed 0, validate) |
 | SUN Attribute | 102 | 717 | 11,472 / 1,434 / 1,434 (per class, seed 0; a concept is present with at least two of three votes) |
 | Derm7pt | 12 | 5 | 413 / 203 / 395 (the authors' indexes) |
-
-## Notes
-
-* GPU detectors are not bit-reproducible across machines: the head results move a little with the detectors, as the
-  predicted columns of any such pipeline do. The heads themselves are deterministic on the CPU given the concept files.
-* The two macro-F1 computations of the table differ slightly (`ConceptHead.macro_f1`): over the classes in the test
-  labels for the logistic regression and the rule learners on cut concepts, over those in the labels or the predictions
-  for the others. They only differ when a class is predicted but absent from the test labels.
