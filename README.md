@@ -46,32 +46,53 @@ tests/          unit tests
 Python 3.10 or later. A GPU is used when PyTorch sees one (the training step is then replayed as a CUDA graph); every
 result can also be computed on a CPU, more slowly.
 
-## Use
+## Use FLARE on your data
+
+### In Python
 
 ```python
+import pandas as pd
 from flare import FLAREClassifier, flare, flare_explainability
 
-model = FLAREClassifier(flare()).fit(X_train, y_train, categorical=mask)   # mask: True for categorical columns (codes 0..K-1)
-model.predict(X_test)
-model.predict_proba(X_test)
-print(model.print_rules())
+data = pd.read_csv('train.csv')
+y = data.pop('class')
+model = FLAREClassifier(flare()).fit(data, y)       # text columns are categorical; or categorical=['colour', ...]
+model.predict(new_rows)
+model.predict_proba(new_rows)
+model.print_rules()                                  # IF age IS fairly high [42 to 51] AND colour IS red THEN yes  (w=0.61)
+model.save('model.pt')
+model = FLAREClassifier.load('model.pt')
 ```
 
-`flare()` is the configuration of the paper that aims at performance (8 averaged models of 120 rules, 100 of them with
-one condition), `flare_explainability()` the one that aims at a small rule base (one model of 40 rules). Every option
-is in `flare/config.py`, e.g. `flare(rules=60, labels=5)`.
+`flare()` aims at performance (8 averaged models of 120 rules, 100 of them with one condition), and
+`flare_explainability()` at a small rule base (one model of 40 rules). Every option is in `flare/config.py`, e.g.
+`flare(rules=60, labels=5, epochs=50)`. Missing values may be left as NaN. The printed rules use the names of the
+categories and the units of the data.
 
-## Data
+### From the command line
+
+    python -m flare fit train.csv --target class                          # prints the rules, saves model.pt
+    python -m flare fit train.csv --target class --test test.csv --config flare-explainability --rules rules.txt
+    python -m flare fit train.csv --target class --categorical colour city --set rules=60 epochs=50
+    python -m flare predict model.pt new.csv --out predictions.csv --proba
+
+`fit` uses every column but the target; columns that hold text are categorical unless `--categorical` names them.
+`--test` reports the accuracy and macro-F1 on another file with the same columns. `predict` writes the predicted class
+of each row (and, with `--proba`, the probability of each class). `python -m flare fit --help` lists every option.
+
+## Reproducing the paper
+
+`experiments/README.md` lists, for every table and figure of the paper, the commands that produce its runs and the
+script that builds it from them.
+
+### Data
 
 The repository holds no data. The tabular benchmarks are downloaded from OpenML on first use (42 OpenML-CC18 datasets,
 `experiments/data/cc18.json`, and the 38 classification tasks of TabArena v0.1, `experiments/data/tabarena.json`) and
 cached in `$FLARE_DATA_DIR` (default `~/.cache/flare`). The graph and image datasets are described in
 `experiments/README.md`: what is downloaded automatically and what you have to download yourself and pass as a path.
 
-## Reproducing the paper
-
-`experiments/README.md` lists, for every table and figure of the paper, the commands that produce its runs and the
-script that builds it from them. In short, for the tabular results:
+### Tabular results
 
     python -m baselines.fetch_external                       # the authors' code of RRL, RL-Net, DR-Net and NeuRules
     python -m experiments.jobs --out results                 # job lists: one command per line, each one resumable
@@ -84,7 +105,8 @@ script that builds it from them. In short, for the tabular results:
     python -m experiments.paper.fig_scalability --results results --out results/figures   # Figure 3
 
 The tuned runs dominate the cost (30 configurations or one hour per fold for every method): plan for several thousand
-CPU hours and a few hundred GPU hours, or run the lines of a job list on a cluster (each line is independent).
+CPU hours and a few hundred GPU hours, or run the lines of a job list on a cluster (each line is independent). The graph
+and concept bottleneck experiments are in `experiments/README.md`.
 
 ## Tests
 

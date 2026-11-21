@@ -25,7 +25,7 @@ import numpy as np
 import pandas as pd
 
 from experiments.data import openml as data
-from flare.config import PRESETS
+from flare.config import PRESETS, parse_options
 from flare.preprocessing import preprocess_fold
 from flare.printing import rules_text
 from flare.train import fit_fold, score_fold
@@ -105,17 +105,10 @@ def main(argv=None):
 
 
 def parse_overrides(items):
-    """['rules=20', 'parallel_bags=false'] -> {'rules': 20, 'parallel_bags': False}, typed after FLAREConfig."""
-    from dataclasses import fields
-    from flare.config import FLAREConfig
-    types = {f.name: type(f.default) for f in fields(FLAREConfig)}
-    out = {}
-    for item in items:
-        key, value = item.split('=', 1)
-        if key not in types:
-            raise SystemExit(f'unknown option {key!r}; see flare/config.py')
-        out[key] = value.lower() in ('1', 'true', 'yes') if types[key] is bool else types[key](value)
-    return out
+    try:
+        return parse_options(items)
+    except ValueError as error:
+        raise SystemExit(str(error))
 
 
 if __name__ == '__main__':

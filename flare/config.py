@@ -82,6 +82,19 @@ def flare_explainability(tabarena=False, gumbel=False, **overrides):
 PRESETS = {'flare': flare, 'flare-explainability': flare_explainability}
 
 
+def parse_options(items):
+    """['rules=20', 'parallel_bags=false'] -> {'rules': 20, 'parallel_bags': False}, typed after FLAREConfig."""
+    from dataclasses import fields
+    types = {f.name: type(f.default) for f in fields(FLAREConfig)}
+    out = {}
+    for item in items:
+        key, value = item.split('=', 1)
+        if key not in types:
+            raise ValueError(f'unknown option {key!r}; the options are those of flare.config.FLAREConfig')
+        out[key] = value.lower() in ('1', 'true', 'yes') if types[key] is bool else types[key](value)
+    return out
+
+
 # --- hyperparameter search (tuned FLARE) -----------------------------------------------------------------------------
 
 def tuning_space(trial):

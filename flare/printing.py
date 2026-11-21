@@ -16,7 +16,8 @@ def rules_text(model, feat_names=None, class_names=None, category_names=None):
     one model whose rules follow each other (rules 1-R of the first model, then the next R, ...).
 
     feat_names: the name of each column of the data (default x0, x1, ...); class_names: the name of each class
-    (default "Class c"); category_names: {column: [name of each category code]} used for category-space columns."""
+    (default "Class c"); category_names: {column: [name of each category code]} for categorical columns (including
+    those with a category space; without names, a categorical condition shows the code)."""
     if isinstance(model, BagEnsemble):
         B = len(model.members)
         return '\n'.join(f'# model {k} of {B}\n' + rules_text(member, feat_names, class_names, category_names)
@@ -35,7 +36,8 @@ def rules_text(model, feat_names=None, class_names=None, category_names=None):
             if column in real_position:
                 conditions.append(model.inputs.condition_text(real_position[column], int(condition), name, category_names.get(column)))
             else:
-                conditions.append(f'{name} IS {condition}')
+                labels = category_names.get(column)
+                conditions.append(f'{name} IS {labels[int(condition)] if labels is not None else condition}')
         c = int(consequents[r])
         class_name = class_names[c] if class_names is not None else f'Class {c}'
         lines.append(f"IF {' AND '.join(conditions) if conditions else '<no conditions>'} THEN {class_name}  (w={rule_weights[r, c]:.3f})")

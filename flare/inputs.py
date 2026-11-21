@@ -20,6 +20,7 @@ contract that `FLAREModel` relies on is:
 
 Categorical variables are not part of the inputs: `FLAREModel` reads them directly (categorical.py).
 """
+import numpy as np
 import torch
 import torch.nn as nn
 
@@ -95,9 +96,14 @@ class TabularInputs(nn.Module):
         except Exception:                                        # noqa: BLE001 - a missing name must not stop printing
             label = str(condition)
         cuts = self._cuts()
+        scale = getattr(self, 'cut_scale', None)
+        number = lambda v: f'{v:.3g}'
+        if scale is not None:                       # (mean, std) of each variable: print the cuts in the data's units
+            cuts = cuts * scale[1][:, None] + scale[0][:, None]
+            number = lambda v: np.format_float_positional(v, precision=3, unique=False, fractional=False, trim='-')
         first, last = run
-        lower = f'{cuts[variable, first - 1]:.3g}' if first > 0 else None
-        upper = f'{cuts[variable, last]:.3g}' if last < cuts.shape[1] else None
+        lower = number(cuts[variable, first - 1]) if first > 0 else None
+        upper = number(cuts[variable, last]) if last < cuts.shape[1] else None
         suffix = f' [>= {lower}]' if upper is None else f' [<= {upper}]' if lower is None else f' [{lower} to {upper}]'
         return f'{name} IS {label}{suffix}'
 
