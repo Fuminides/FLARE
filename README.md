@@ -1,18 +1,37 @@
 # FLARE: Fuzzy Learned-Antecedent Rule Evidence
 
-FLARE is a differentiable rule learner. It learns many short fuzzy rules, most of them with a single condition, and
-adds their evidence to decide the class: every rule that holds for a sample gives points to the classes, weighted by how
-much it holds. The conditions are fuzzy labels of the variables ("age IS high", "income IS at least medium") whose
-partitions are learned with the rules, and categorical variables with thousands of categories get a learned space
-where their labels are regions. The rules are searched by gradient descent: the forward pass is the discrete rule base
-that is deployed, and the gradient of a relaxed version is grafted onto it.
+FLARE is a differentiable rule learner: it learns short fuzzy rules, and every rule that holds for a sample adds its
+points to the classes.
 
-This repository contains the method, the compared methods and the scripts that reproduce the results of the paper.
+![FLARE on one person of the adult dataset](docs/flare_overview.png)
+
+*For one test person of the adult dataset. (A) Each real variable is described by fuzzy labels. (B) The truth of a rule
+is the product of the truths of its conditions. (C) The score starts at the bias, every rule adds its points times its
+truth degree, and the final decision is taken.*
+
+## Abstract
+
+Rule learners are used where transparency and accountability are required, because they give practitioners patterns
+they can read. Learning rules is a discrete problem, so neurosymbolic pipelines that use rules as explanations rely on
+relaxations such as the straight-through estimator. However, these differentiable rule learners often lag behind both
+classical rule learners and black-box classifiers in terms of performance. We study which parts of a rule-based
+classifier (conditions, rule length, rule weights, sufficiency and interactions) affect performance, and how well
+gradient-based training learns each of them. Based on our results, we propose FLARE (Fuzzy Learned-Antecedent Rule
+Evidence), a differentiable rule learner that learns simple rules that combine to make the final decision. We also
+propose a learned encoding for variables with thousands of categories. We test FLARE on tabular data, using 42 datasets
+of OpenML-CC18 and the 38 classification tasks of TabArena. On CC18, FLARE exceeds the compared rule learners by 7.69 to
+12.38 macro-F1 points and performs comparably to random forests, while remaining 1.00 to 1.11 points below tuned
+gradient-boosted trees. On TabArena it ranks at the same level as random forests and ahead of the other rule learners.
+As the concept-to-label head of a concept bottleneck model, FLARE is the best rule-based head in five of six settings.
+On graphs, it is competitive on PubMed and EMOGI but falls behind graph neural networks on Cora and Citeseer.
+
+## Repository
 
 ```
-flare/          the method (a PyTorch package; every module says which part of the paper it implements)
+flare/          the method (a PyTorch package)
 baselines/      the compared methods: builders, search spaces and adapters to the authors' code
 experiments/    data loaders, runners, job lists and the scripts of the tables and figures
+docs/           the figure above
 tests/          unit tests
 ```
 
