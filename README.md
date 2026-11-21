@@ -1,7 +1,7 @@
 # FLARE: Fuzzy Learned-Antecedent Rule Evidence
 
-FLARE is a differentiable rule learner: it learns short fuzzy rules, and every rule that holds for a sample adds its
-points to the classes.
+FLARE is a differentiable rule learner, significantly better than the competition in performance and size. It uses
+short and simple rules with interpretable fuzzy partitions. Take a look at the example below to know how FLARE works.
 
 ![FLARE on one person of the adult dataset](docs/flare_overview.png)
 
