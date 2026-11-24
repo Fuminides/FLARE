@@ -113,6 +113,20 @@ and concept bottleneck experiments are in `experiments/README.md`.
     pip install -e ".[experiments,dev]"
     pytest                                   # unit tests (CPU; the tests of an optional part skip when its extra is missing)
 
+## Preprint
+If you use FLARE in your research, please cite our [arXiv preprint](https://arxiv.org/abs/2611.28272).
+
+```bibtex
+@misc{fumanalidocin2026flare,
+  title         = {What Do Differentiable Rule Learners Need? {FLARE}: Fuzzy Rules with Additive Evidence},
+  author        = {Fumanal-Idocin, Javier and Andreu-Perez, Javier},
+  year          = {2026},
+  eprint        = {2611.28272},
+  archivePrefix = {arXiv},
+  url           = {https://arxiv.org/abs/2611.28272}
+}
+```
+
 ## Licence
 
 MIT (`LICENSE`). The compared methods keep their own licences (`baselines/README.md`); the authors' code is cloned at
