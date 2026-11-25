@@ -88,8 +88,9 @@ def preprocess_fold(X_train, y_train, X_test, y_test, categorical, seed, val_pro
     categorical = np.array(categorical, dtype=bool)
     X_tr, X_val, y_tr, y_val = train_test_split(X_train, y_train, test_size=val_proportion, random_state=seed,
                                                 stratify=y_train)
-    # Cast to float: for an all-integer frame .values is an int array and the scaled values would be truncated.
-    X_tr, X_val, X_te = (np.asarray(X.values, dtype=float) for X in (X_tr, X_val, X_test))
+    # Cast to float and copy: for an all-integer frame .values is an int array and the scaled values would be truncated,
+    # and with pandas 3 (copy-on-write) .values is read-only.
+    X_tr, X_val, X_te = (np.array(X.values, dtype=float) for X in (X_tr, X_val, X_test))
     y_tr, y_val, y_te = (np.asarray(y).astype(int) for y in (y_tr, y_val, y_test))
     raw_test = X_te.copy()
     # The number of classes: the largest code seen in the fold, so a class that is missing from a fold keeps its index.

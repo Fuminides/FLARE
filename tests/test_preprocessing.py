@@ -54,6 +54,19 @@ def test_scaler_and_effects_are_fitted_on_training_rows_only():
     assert abs(a.X_train[:, 1].mean()) < 1e-12 and abs(a.X_train[:, 1].std() - 1) < 1e-2
 
 
+def test_preprocess_fold_accepts_frames_whose_values_are_read_only():
+    X, y = _frame()
+    values = X.to_numpy(copy=True)
+    values.flags.writeable = False                     # pandas 3 (copy-on-write) hands out read-only arrays like this one
+    frozen = pd.DataFrame(values, columns=X.columns, copy=False)
+    a = preprocess_fold(frozen.iloc[:300], y.iloc[:300], frozen.iloc[300:], y.iloc[300:], [True, False, False], seed=1,
+                        category_space=32)
+    b = preprocess_fold(X.iloc[:300], y.iloc[:300], X.iloc[300:], y.iloc[300:], [True, False, False], seed=1,
+                        category_space=32)
+    np.testing.assert_array_equal(a.X_train, b.X_train)
+    np.testing.assert_array_equal(a.X_test, b.X_test)
+
+
 def test_preprocess_split_equals_preprocess_fold_on_the_same_split():
     from sklearn.model_selection import train_test_split
     X, y = _frame()
