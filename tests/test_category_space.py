@@ -1,5 +1,6 @@
 """Learned category space (flare/category_space.py)."""
 import numpy as np
+import pytest
 import torch
 
 from flare.category_space import CategorySpace
@@ -7,6 +8,8 @@ from flare.inputs import TabularInputs
 from flare.model import FLAREModel
 from flare.partitions import quantile_partitions
 from flare.selectors import GradMode
+from flare.train import fit_fold
+from helpers import small_config, toy_fold
 
 
 def test_loss_terms_can_be_removed_independently_without_changing_initialisation():
@@ -82,3 +85,20 @@ def test_a_model_with_a_category_space_runs_prints_the_groups_and_its_loss_has_a
     assert text.startswith('city IN {town') and 'categories)' in text
     inputs.category_spaces.requires_grad_(False)                 # frozen spaces (a later bag) contribute no loss and no step
     assert inputs.space_parameters() == [] and float(inputs.space_loss('cpu')) == 0.0
+
+
+def test_the_warm_up_leaves_no_gradient_behind():
+    s = CategorySpace(np.array([400, 300, 100, 50, 10, 5]), n_regions=3, dim=4, seed=0).warm_up(steps=20)
+    assert all(p.grad is None for p in s.parameters())
+
+
+@pytest.mark.skipif(not torch.cuda.is_available(), reason='CUDA graphs need a GPU')
+def test_the_later_models_of_a_bag_keep_the_space_of_the_first_one_through_their_training():
+    fold, cardinalities = toy_fold(categorical_sizes=(40,), category_space=32)
+    config = small_config(bags=3, parallel_bags=False, cuda_graph=True, category_space=4, category_space_min=32)
+    members = fit_fold(fold, config, cardinalities, random_seed=1, device='cuda').model.members
+    first = members[0].inputs.category_spaces.state_dict()
+    assert len(members) == 3 and first
+    for member in members[1:]:
+        for key, value in first.items():
+            assert torch.equal(value, member.inputs.category_spaces.state_dict()[key]), key

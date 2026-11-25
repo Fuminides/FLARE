@@ -105,6 +105,8 @@ class CategorySpace(nn.Module):
                 self.centers[L:] = centers[torch.arange(self.n_regions - L) % L]
             self.log_width[:L] = torch.log(spread.clamp(min=1e-2) + 1e-2)
             self.log_width[L:] = self.log_width[:L].mean()
+        for p in self.parameters():                    # a gradient left here would move a space that a later bag reads frozen
+            p.grad = None
         return self
 
     @torch.no_grad()
